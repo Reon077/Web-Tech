@@ -1,18 +1,30 @@
 <?php
+require_once '../models/register.php';
 
-function dbConnect() {
-    return new mysqli('localhost', 'root', '', 'Careersphere', 3307);
-}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
 
-function userExists($email) {
-    $conn = dbConnect();
-    $sql = "SELECT * FROM users WHERE email = '$email'";
-    $result = mysqli_query($conn, $sql);
-    return mysqli_num_rows($result) > 0;
-}
+    if (empty($username) || empty($email) || empty($password) || empty($confirm_password)) {
+        die("Please fill in all fields.");
+    }
 
-function registerUser($username, $email, $password) {
-    $conn = dbConnect();
-    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
-    return mysqli_query($conn, $sql);
+    if ($password !== $confirm_password) {
+        die("Passwords do not match.");
+    }
+
+    if (userExists($email)) {
+        die("User already exists with this email.");
+    }
+
+    if (registerUser($username, $email, $password)) {
+        header('Location: ../views/user_authentication/login.php');
+    } else {
+        echo "Error while registering user.";
+    }
+} else {
+    header('Location: ../views/user_authentication/register.php');
+    exit;
 }
