@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+    line-height: 1.6;
+}
+
+.main-content {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #00a8ff;
+}
+
+.card p {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2f3542;
+}
+
+.graph-section {
+    background: #ffffff;
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.graph-section h2 {
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #2f3542;
+}
+
+.bar-graph {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 300px;
+    background: #f4f6f8;
+    border-radius: 12px;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.bar {
+    width: 50px;
+    background-color: #00a8ff;
+    color: #ffffff;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-radius: 8px 8px 0 0;
+    font-size: 14px;
+    transition: height 0.3s ease;
+}
+
+.bar:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.employer-list {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    overflow-x: auto;
+}
+
+.employer-list h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #2f3542;
+    text-align: center;
+}
+
+.employer-list table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    min-width: 600px;
+}
+
+.employer-list th, .employer-list td {
+    padding: 14px 18px;
+    border: 1px solid #e0e0e0;
+}
+
+.employer-list th {
+    background-color: #00a8ff;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.employer-list tr:nth-child(even) {
+    background-color: #f4f6f8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .graph-section h2,
+    .employer-list h2 {
+        font-size: 20px;
+    }
+
+    .bar {
+        width: 40px;
+        font-size: 12px;
+    }
+
+    .card h3 {
+        font-size: 18px;
+    }
+
+    .card p {
+        font-size: 22px;
+    }
+}

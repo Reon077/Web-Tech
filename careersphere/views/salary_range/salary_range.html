@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compensation Tools</title>
+  <link rel="stylesheet" href="../../assets/styles/salary_range/salary_range.css">
+</head>
+<body>
+  <h1>Compensation Tools</h1>
+
+  <div class="section" id="estimator">
+    <h2>1. Compensation Estimator</h2>
+    <label for="position">Select Position:</label>
+    <select id="position">
+      <option value="">-- Choose Position --</option>
+      <option value="Software Engineer">Software Engineer</option>
+      <option value="Data Analyst">Data Analyst</option>
+      <option value="Product Manager">Product Manager</option>
+    </select>
+    <button onclick="estimateCompensation()">Estimate</button>
+    <div class="result" id="estimatorResult"></div>
+  </div>
+
+  <div class="section" id="comparison">
+    <h2>2. Compare Offers Side-by-Side</h2>
+    <input type="text" id="role1" placeholder="Offer 1 - Role" />
+    <input type="number" id="salary1" placeholder="Offer 1 - Salary" />
+    <input type="text" id="role2" placeholder="Offer 2 - Role" />
+    <input type="number" id="salary2" placeholder="Offer 2 - Salary" />
+    <button onclick="compareOffers()">Compare</button>
+    <div class="comparison-table" id="comparisonTable"></div>
+  </div>
+
+  <div class="section" id="breakdown">
+    <h2>3. Total Compensation Breakdown</h2>
+    <input type="number" id="base" placeholder="Base Salary" />
+    <input type="number" id="bonus" placeholder="Annual Bonus" />
+    <input type="number" id="stock" placeholder="Stock Options" />
+    <button onclick="calculateTotal()">Calculate</button>
+    <div class="result" id="totalResult"></div>
+  </div>
+</body>
+</html>
